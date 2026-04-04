@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+:root {
+    --slack-purple: #3f0e40;
+    --slack-blue: #1264a3;
+    --slack-green: #2eb67d;
+    --bg-color: #ffffff;
+    --text-primary: #1d1c1d;
+    --nav-bg: #ffffff;
+    --border-color: #ebeaeb;
+    --btn-hover: #4a154b;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1d21;
+    --text-primary: #d1d2d3;
+    --nav-bg: #1a1d21;
+    --border-color: #35373b;
+    --slack-purple: #121013;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--slack-blue);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.theme-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg-color);
+}
