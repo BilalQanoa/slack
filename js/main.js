@@ -12,10 +12,38 @@ if (localStorage.getItem('theme') === 'dark') {
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-        nav.classList.add('mt-4', 'mx-[5%]', 'rounded-full', 'bg-white/90', 'dark:bg-black/80', 'backdrop-blur-md', 'shadow-xl', 'border', 'border-gray-200', 'dark:border-gray-800');
-        nav.classList.remove('px-[5%]');
+        nav.classList.add(
+            'mt-4',           
+            'mx-4',           
+            'md:mx-[5%]',      
+            'rounded-full',   
+            'px-6',           
+            'py-3',          
+            'bg-white/90',
+            'dark:bg-[#1a1d21]/90',
+            'backdrop-blur-md',
+            'shadow-2xl',
+            'border',
+            'border-gray-200',
+            'dark:border-gray-800'
+        );
+        nav.classList.remove('px-[5%]', 'py-4', 'top-0');
     } else {
-        nav.classList.remove('mt-4', 'mx-[5%]', 'rounded-full', 'bg-white/90', 'dark:bg-black/80', 'backdrop-blur-md', 'shadow-xl', 'border', 'border-gray-200', 'dark:border-gray-800');
-        nav.classList.add('px-[5%]');
+        nav.classList.remove(
+            'mt-4',
+            'mx-4',
+            'md:mx-[5%]',
+            'rounded-full',
+            'px-6',
+            'py-3',
+            'bg-white/90',
+            'dark:bg-[#1a1d21]/90',
+            'backdrop-blur-md',
+            'shadow-2xl',
+            'border',
+            'border-gray-200',
+            'dark:border-gray-800'
+        );
+        nav.classList.add('px-[5%]', 'py-4', 'top-0');
     }
 });

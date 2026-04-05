@@ -24,7 +24,7 @@
 
 <body class="bg-white dark:bg-[#1a1d21] text-[#1d1c1d] dark:text-[#d1d2d3] transition-colors duration-300">
 
-    <nav id="navbar"
+    <header id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
         <div class="flex items-center gap-8">
             <a href="index.html" class="flex items-center">
@@ -50,16 +50,118 @@
                 Theme
             </button>
         </div>
-    </nav>
-
-    <header class="pt-32 px-[5%] flex flex-col items-center text-center">
-        <h1 class="text-5xl md:text-7xl font-black mb-6">Made for people. <span
-                class="text-slack-purple dark:text-purple-400">Built for productivity.</span></h1>
-        <p class="text-xl max-w-2xl mb-8 font-medium">Connect the right people, find anything you need and finally get
-            more done together.</p>
-        <button class="bg-slack-purple text-white px-8 py-4 rounded font-bold text-lg hover:bg-slack-hover">GET
-            STARTED</button>
     </header>
+
+    <main
+        class="relative pt-40 pb-20 px-[5%] flex flex-col items-center text-center overflow-hidden bg-white dark:bg-[#1b1d21]">
+    
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+            <div
+                class="absolute top-[40%] right-[-10%] w-[40%] h-[60%] bg-purple-200/40 dark:bg-purple-900/20 blur-[120px] rounded-full">
+            </div>
+            <div
+                class="absolute top-[50%] left-[-10%] w-[40%] h-[60%] bg-yellow-100/40 dark:bg-yellow-900/10 blur-[120px] rounded-full">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[20%] w-[60%] h-[40%] bg-pink-50/50 dark:bg-pink-900/10 blur-[100px] rounded-full">
+            </div>
+        </div>
+    
+        <h1 class="text-5xl md:text-[80px] leading-[1.1] font-black mb-6 tracking-tight text-black dark:text-white">
+            All your people and AI agents <br class="hidden md:block"> working together.
+        </h1>
+        <p class="text-xl md:text-2xl max-w-3xl mb-12 font-medium text-gray-800 dark:text-gray-300">
+            Slack connects your team. Slackbot multiplies what they can do.
+        </p>
+    
+        <div class="flex flex-col sm:flex-row gap-4 mb-20 relative z-10">
+            <button
+                class="bg-[#611f69] hover:bg-[#4a154b] text-white px-10 py-5 rounded-md font-bold text-sm tracking-widest uppercase transition-all shadow-lg">
+                GET STARTED
+            </button>
+            <button
+                class="border-2 border-[#611f69] text-[#611f69] dark:border-white dark:text-white px-10 py-5 rounded-md font-bold text-sm tracking-widest uppercase hover:bg-gray-50 dark:hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                FIND YOUR PLAN <span>→</span>
+            </button>
+        </div>
+    
+        <div class="w-full max-w-6xl mb-24 relative z-10">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 opacity-70 dark:invert">
+                <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.25em] whitespace-nowrap mx-3">Trusted
+                    by top teams</p>
+                <img src="https://a.slack-edge.com/84f9021/marketing/img/homepage/true-prospects/hero-revamp/logos/logo-gm-small.png"
+                    alt="GM" class="h-7 grayscale">
+                <img src="https://a.slack-edge.com/84f9021/marketing/img/homepage/true-prospects/hero-revamp/logos/logo-openai-small.png"
+                    alt="OpenAI" class="h-7 grayscale">
+                <img src="https://a.slack-edge.com/a4c4a15/marketing/img/homepage/true-prospects/revamp-exp/logos/logo-target-small.png"
+                    alt="Target" class="h-7 grayscale">
+                <img src="https://a.slack-edge.com/84f9021/marketing/img/homepage/true-prospects/hero-revamp/logos/logo-stripe-small.png"
+                    alt="Stripe" class="h-7 grayscale">
+                <img src="https://a.slack-edge.com/84f9021/marketing/img/homepage/true-prospects/hero-revamp/logos/logo-ibm-small.png"
+                    alt="IBM" class="h-7 grayscale">
+            </div>
+        </div>
+    
+        <div
+            class="relative w-full max-w-5xl mx-auto rounded-xl shadow-[0_20px_50px_rgba(97,31,105,0.2)] border-[6px] border-[#330335] dark:border-white/10 overflow-hidden bg-black">
+            <video autoplay loop muted playsinline class="w-full h-auto block opacity-95">
+                <source src="https://a.slack-edge.com/5cb5052/marketing/img/homepage/revamped-25/hero/hp-lists@2x.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mt-12 max-w-4xl mx-auto relative z-10">
+        
+            <div
+                class="flex items-center gap-2 bg-[#4a154b] text-white px-5 py-2.5 rounded-full shadow-md cursor-pointer hover:scale-105 transition-transform">
+                <span class="font-bold text-sm tracking-tight">Ask Slackbot</span>
+                <img src="https://a.slack-edge.com/c3ea545/marketing/img/homepage/icons/icon-slackbot.svg" alt=""
+                    class="w-5 h-5">
+            </div>
+        
+            <div
+                class="flex items-center gap-2 bg-white/80 dark:bg-white/10 border border-gray-200 dark:border-gray-700 text-[#4a154b] dark:text-white px-5 py-2.5 rounded-full shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-all">
+                <span class="font-bold text-sm tracking-tight">Plan launches</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                    </path>
+                </svg>
+            </div>
+        
+            <div
+                class="flex items-center gap-2 bg-white/80 dark:bg-white/10 border border-gray-200 dark:border-gray-700 text-[#4a154b] dark:text-white px-5 py-2.5 rounded-full shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-all">
+                <span class="font-bold text-sm tracking-tight">Run projects</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                    </path>
+                </svg>
+            </div>
+        
+            <div class="w-full flex justify-center gap-3 mt-1">
+                <div
+                    class="flex items-center gap-2 bg-white/80 dark:bg-white/10 border border-gray-200 dark:border-gray-700 text-[#4a154b] dark:text-white px-5 py-2.5 rounded-full shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-all">
+                    <span class="font-bold text-sm tracking-tight">Chat with clients</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                        </path>
+                    </svg>
+                </div>
+        
+                <div
+                    class="flex items-center gap-2 bg-white/80 dark:bg-white/10 border border-gray-200 dark:border-gray-700 text-[#4a154b] dark:text-white px-5 py-2.5 rounded-full shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-white/20 transition-all">
+                    <span class="font-bold text-sm tracking-tight">Automate tasks</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    
+    </main>
 
     <script src="js/main.js"></script>
 </body>
