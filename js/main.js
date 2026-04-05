@@ -47,3 +47,25 @@ window.addEventListener('scroll', () => {
         nav.classList.add('px-[5%]', 'py-4', 'top-0');
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const featureItems = document.querySelectorAll('.ai-feature-item');
+    const featureVideo = document.getElementById('feature-video');
+
+    featureItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // 1. Remove 'active' class from all items
+            featureItems.forEach(i => i.classList.remove('active'));
+
+            item.classList.add('active');
+            const newVideoSrc = item.getAttribute('data-video');
+            featureVideo.style.opacity = '0';
+            setTimeout(() => {
+                featureVideo.src = newVideoSrc;
+                featureVideo.play();
+                featureVideo.style.opacity = '1'; 
+            }, 300);
+        });
+    });
+});
