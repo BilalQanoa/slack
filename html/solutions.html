@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="ltr">
-
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <head>
     <meta charset="UTF-8">
-    <title>Pricing | Slack</title>
+    <title>solutions | Slack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'slack-purple': '#3f0e40' } } } }
@@ -62,19 +63,20 @@
              alt="Slack Preview" 
              class="w-full max-w-xl ">
         <div class="absolute inset-0 flex items-center justify-center">
-        <span class="text-white text-2xl ml-1">▶</span>
+            <div class="w-24 h-16 bg-black/50  flex items-center justify-center hover:scale-110 transition">
+                <i class="fa-solid fa-play text-white text-xl ml-1"></i>
+            </div>
+        </div>
     </div>
 </div>
-    </div>
-
 </div>
 
 <!-- Video Modal -->
 <div id="videoModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-8"
      onclick="if(event.target===this){closeModal()}">
     <button onclick="closeModal()" 
-            class="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors">
-        ✕
+    class="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors">
+        <i class="fa-solid fa-xmark"></i>
     </button>
     <video 
         id="heroVideo"
@@ -90,7 +92,7 @@
 <section class="py-20 px-[5%] max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row items-center gap-16">
 
-        <div class="flex-1 flex justify-center relative min-h-96 mt-20">
+        <div class="flex-1 flex justify-center relative min-h-96 mt-20 w-full max-w-xl ">
             <div class="absolute bottom-0 left-0 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tr-[50%] rounded-br-[20%]"></div>
 
             <div class="absolute bottom-8  left-5 w-[480px] rounded-2xl overflow-hidden shadow-2xl z-10">
@@ -106,7 +108,7 @@
         </div>
 
         <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
                 Solve Issues Faster
             </p>
             <h2 class="text-4xl font-black leading-tight mb-8">
@@ -114,18 +116,25 @@
             </h2>
 
             <ul class="space-y-4 mb-10">
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
-                    <span class="text-gray-700 dark:text-gray-300">Pipe real-time alerts into channels automatically</span>
+                <li class="flex items-center gap-3">
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Pipe real-time alerts into channels automatically</span>
                 </li>
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
 
-                    <span class="text-gray-700 dark:text-gray-300">Run parallel investigations to find answers quickly</span>
+                <li class="flex items-center gap-3">
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Run parallel investigations to find answers quickly</span>
                 </li>
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
-                    <span class="text-gray-700 dark:text-gray-300">Create one source of truth for fast, easy analysis</span>
+
+                <li class="flex items-center gap-3">
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Create one source of truth for fast, easy analysis</span>
                 </li>
             </ul>
 
@@ -145,116 +154,52 @@
         </div>
     </div>
 </section>
-<!-- See How Slack Works Section -->
-<section class="py-20 px-[5%]">
-    <div class="max-w-7xl mx-auto">
-        
-        <h2 class="text-3xl font-black text-center mb-12">
-            See how Slack works for Engineering teams
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Card 1 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-01.png" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Guide</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        5 stages of the software development lifecycle
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <span>→</span>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-02.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">e-book</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        Software engineering and Slack: a love story
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <span>→</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-03.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Webinar</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        Resolve incidents faster in Slack
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        WATCH NOW <span>→</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-50 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-04.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Guide</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        The value of Slack for software developers
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <span>→</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 <!-- Deploy Efficiently Section -->
 <section class="py-20 px-[5%] max-w-7xl mx-auto relative">
     <div class="flex flex-col md:flex-row items-center gap-16">
 
         <!-- Left Content -->
         <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
                 Deploy Efficiently
             </p>
 
             <h2 class="text-4xl font-black leading-tight mb-8">
                 Align your team and processes
             </h2>
+        <ul class="space-y-4 mb-10">
 
-            <ul class="space-y-4 mb-10">
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
-                    <span class="text-gray-700 dark:text-gray-300">Bring documentation into channels for informed decisions pre-code</span>
-                </li>
+            <li class="flex items-start gap-3">
+                <span class="check-icon">
+                <i class="fa-solid fa-check"></i>
+                </span>
+                <span >
+                    Bring documentation into channels for informed decisions pre-code
+                </span>
+            </li>
 
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
-                    <span class="text-gray-700 dark:text-gray-300">Establish a single place for code review and testing</span>
-                </li>
+            <li class="flex items-start gap-3">
+                <span class="check-icon">
+                <i class="fa-solid fa-check"></i>
+                </span>
+                <span >
+                    Establish a single place for code review and testing
+                </span>
+            </li>
 
-                <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold shrink-0">✓</span>
-                    <span class="text-gray-700 dark:text-gray-300">Integrate tools to boost deployment visibility and automation</span>
-                </li>
-            </ul>
+            <li class="flex items-start gap-3">
+                
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >
+                        Integrate tools to boost deployment visibility and automation
+                    </span>
+            
+            </li>
+
+        </ul>
 
             <blockquote>
                 <p class="text-gray-600 dark:text-gray-400 italic text-sm leading-relaxed mb-4">
@@ -273,7 +218,7 @@
             </blockquote>
         </div>
 
-        <div class="relative flex-1 flex justify-center items-center min-h-[500px] mt-20">
+        <div class="relative flex-1 flex justify-center items-center min-h-[500px] mt-20 w-full max-w-xl">
 
             <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tl-[50%] rounded-bl-[20%]"></div>
 
@@ -298,7 +243,7 @@
 
         <!-- Right Content -->
         <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
                 Work Happier
             </p>
             <h2 class="text-4xl font-black leading-tight mb-8">
@@ -308,22 +253,22 @@
             <!-- Feature List -->
             <ul class="space-y-4 mb-10">
                 <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold mt-0.5 shrink-0">
-                    ✓
-                    </span>   
-                    <span class="text-gray-700 dark:text-gray-300">Get new devs up to speed faster with an easily referenced record of work</span>
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Get new devs up to speed faster with an easily referenced record of work</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold mt-0.5 shrink-0">
-                    ✓
-                    </span> 
-                    <span class="text-gray-700 dark:text-gray-300">Automate away low-value, routine tasks</span>
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Automate away low-value, routine tasks</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-[#4A154B] text-white text-[10px] font-bold mt-0.5 shrink-0">
-                    ✓
-                    </span> 
-                    <span class="text-gray-700 dark:text-gray-300">Customize Slack with workflows, apps and bots</span>
+                    <span class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span >Customize Slack with workflows, apps and bots</span>
                 </li>
             </ul>
 
@@ -354,73 +299,124 @@
     <div class="max-w-7xl mx-auto">
         
         <h2 class="text-3xl font-black mb-3">2,600+ integrations and counting</h2>
-        <p class="text-gray-500 dark:text-gray-400 mb-3">
+        <p class="text-gray-900 dark:text-gray-900 mb-3">
             Slack connects with all your favorite tools, like GitHub, Jenkins, Jira, PagerDuty and more.
         </p>
         <a href="#" class="text-blue-600 dark:text-blue-400 font-medium hover:underline inline-flex items-center gap-1 mb-12">
             See all engineering integrations →
         </a>
 
-       <div class="flex flex-col gap-8">
+<div class="flex flex-col gap-8">
 
-    <!-- Row 1 -->
-    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center">
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img1.png" alt="GitHub" class="w-16 h-16 dark:invert">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img2.png" alt="Terminal" class="w-16 h-16 dark:invert">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img3.png" alt="Stack Overflow" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img4.png" alt="Jira" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img5.png" alt="1Password" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img6.png" alt="PagerDuty" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img7.png" alt="Mulesoft" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img8.png" alt="Azure" class="w-16 h-16">
-        </div>
+    <!-- Row -->
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
+        
+        <img src="../assets/solutions/img1.png" alt="GitHub" >
+        <img src="../assets/solutions/img2.png" alt="Terminal" >
+        <img src="../assets/solutions/img3.png" alt="Stack Overflow" >
+        <img src="../assets/solutions/img4.png" alt="Jira" >
+        <img src="../assets/solutions/img5.png" alt="1Password" >
+        <img src="../assets/solutions/img6.png" alt="PagerDuty" >
+        <img src="../assets/solutions/img7.png" alt="Mulesoft" >
+        <img src="../assets/solutions/img8.png" alt="Azure">
     </div>
 
-    <!-- Row 2 -->
-    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center">
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img9.png" alt="Datadog" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img10.png" alt="GitLab" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img11.png" alt="ServiceNow" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img12.png"alt="Opsgenie" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img13.png" alt="Jenkins" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img14.png" alt="CircleCI" class="w-16 h-16 dark:invert">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img15.png"alt="Zapier" class="w-16 h-16">
-        </div>
-        <div class="hover:scale-110 transition-transform">
-            <img src="../assets/solutions/img16.png" alt="Zoom" class="w-16 h-16">
-        </div>
+    <!-- Row -->
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
+        
+        <img src="../assets/solutions/img9.png" alt="Datadog" >
+        <img src="../assets/solutions/img10.png" alt="GitLab" >
+        <img src="../assets/solutions/img11.png" alt="ServiceNow" >
+        <img src="../assets/solutions/img12.png" alt="Opsgenie" >
+        <img src="../assets/solutions/img13.png" alt="Jenkins">
+        <img src="../assets/solutions/img14.png" alt="CircleCI" >
+        <img src="../assets/solutions/img15.png" alt="Zapier">
+        <img src="../assets/solutions/img16.png" alt="Zoom" >
     </div>
 
 </div>
 
+<!-- See How Slack Works Section -->
+
+<section class="py-10 px-[5%] mt-24">
+    <div class="max-w-7xl mx-auto">
+        
+        <h2 class="text-3xl font-black text-center mb-12">
+            See how Slack works for Engineering teams
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                <div class="w-full h-48 p-3 overflow-hidden">
+                    <img src="../assets/solutions/img-promo-01.png" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Guide</p>
+                    <h3 class="font-black text-lg leading-tight mb-auto">
+                        5 stages of the software development lifecycle
+                    </h3>
+                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                <div class="w-full h-48 p-3 overflow-hidden">
+                    <img src="../assets/solutions/img-promo-02.jpg" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">e-book</p>
+                    <h3 class="font-black text-lg leading-tight mb-auto">
+                        Software engineering and Slack: a love story
+                    </h3>
+                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                <div class="w-full h-48 p-3 overflow-hidden">
+                    <img src="../assets/solutions/img-promo-03.jpg" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Webinar</p>
+                    <h3 class="font-black text-lg leading-tight mb-auto">
+                        Resolve incidents faster in Slack
+                    </h3>
+                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                        WATCH NOW <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                <div class="w-full h-50 p-3 overflow-hidden">
+                    <img src="../assets/solutions/img-promo-04.jpg" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Guide</p>
+                    <h3 class="font-black text-lg leading-tight mb-auto">
+                        The value of Slack for software developers
+                    </h3>
+                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 <!-- FAQ Section -->
 <section class="py-20 px-[5%]">
     <div class="max-w-3xl mx-auto">
@@ -434,14 +430,7 @@
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-lg">What are the benefits of Slack?</h3>
 
-                <svg class="faq-icon w-5 h-5 transition-transform duration-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
             </div>
 
             <div class="faq-answer hidden mt-4 text-gray-600 dark:text-gray-400 leading-relaxed space-y-3 text-left">                    <p>Slack is popular among developers for a reason: it makes their work simpler and more productive. They can choose whatever tools they like for deploys, testing, etc, and integrate them into Slack. This increases the value of their existing tech stack, and centralizes team discussions.</p>
@@ -453,15 +442,7 @@
         <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-lg">How do I add a bot to Slack?</h3>
-
-                <svg class="faq-icon w-5 h-5 transition-transform duration-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
             </div>
 
             <div class="faq-answer hidden mt-4 text-gray-600 dark:text-gray-400 leading-relaxed space-y-3 text-left">
@@ -473,15 +454,7 @@
         <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-lg">Where is Slack data stored?</h3>
-
-                <svg class="faq-icon w-5 h-5 transition-transform duration-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
             </div>
 
             <div class="faq-answer hidden mt-4 text-gray-600 dark:text-gray-400 leading-relaxed space-y-3 text-left">
@@ -493,15 +466,7 @@
         <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-lg">What is a Slack workspace?</h3>
-
-                <svg class="faq-icon w-5 h-5 transition-transform duration-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
             </div>
 
             <div class="faq-answer hidden mt-4 text-gray-600 dark:text-gray-400 leading-relaxed space-y-3 text-left">
@@ -514,15 +479,7 @@
         <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-lg">Is Slack secure?</h3>
-
-                <svg class="faq-icon w-5 h-5 transition-transform duration-300"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
             </div>
 
             <div class="faq-answer hidden mt-4 text-gray-800 dark:text-gray-900 leading-relaxed space-y-3 text-left">
@@ -535,6 +492,8 @@
 
     <script src="../js/solutions.js"></script>
     <script src="../js/main.js"></script>
+    
+    
 </body>
 
 </html>
