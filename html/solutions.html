@@ -2,6 +2,7 @@
 <html lang="ar" dir="ltr">
 <link rel="stylesheet" href="../css/global.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <head>
     <meta charset="UTF-8">
     <title>solutions | Slack</title>
@@ -9,489 +10,811 @@
     <script>
         tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'slack-purple': '#3f0e40' } } } }
     </script>
+
 </head>
 
 <body class="bg-white dark:bg-[#1a1d21] text-[#1d1c1d] dark:text-[#d1d2d3]">
 
-    <nav id="navbar"
+    <header id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
         <div class="flex items-center gap-8">
-            <a href="../index.html" class="flex items-center">
-                <img src="../assets/logo-slack.svg" alt="Slack Logo"
-                    class="h-6 md:h-8 dark:invert transition-all duration-300">
+            <a href="../index.html">
+                <img src="https://a.slack-edge.com/80588/img/slack_logo_240.png" alt="Slack"
+                    class="h-8 dark:invert transition-all duration-300">
             </a>
-    
-            <ul class="hidden md:flex gap-6 font-bold text-sm">
-                <li><a href="solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
-                <li><a href="enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a></li>
-                <li><a href="pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
-            </ul>
+            <nav class="hidden md:block" aria-label="Primary">
+                <ul class="flex gap-6 font-semibold text-[15px] tracking-[-0.01em]">
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Features</a></li>
+                    <li><a href="solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
+                    <li><a href="enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a>
+                    </li>
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Resources</a></li>
+                    <li><a href="pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
+                </ul>
+            </nav>
         </div>
-    
+
         <div class="flex items-center gap-4">
-    
-            <button onclick="toggleTheme()"
-                class="bg-slack-purple text-white dark:bg-white dark:text-slack-purple px-6 py-2 rounded font-black text-xs uppercase shadow-md active:scale-95 transition-all duration-300">
-                Theme
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <a href="#"
+                class="hidden lg:inline-flex text-[15px] font-semibold hover:text-slack-blue transition-colors">Sign
+                in</a>
+
+            <a href="contact-sales.html"
+                class="hidden lg:inline-flex font-bold text-[13px] tracking-[0.08em] uppercase border-2 border-slack-purple text-slack-purple px-4 py-2 rounded hover:bg-slack-purple hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-slack-purple transition-all duration-300">
+                REQUEST A DEMO
+            </a>
+
+            <a href="#"
+                class="hidden sm:inline-flex bg-[#611f69] hover:bg-[#4a154b] text-white px-5 py-2 rounded font-extrabold text-[13px] tracking-[0.08em] uppercase shadow-sm active:scale-[0.98] transition-all duration-200">
+                Get started
+            </a>
+
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-controls="mobileMenu"
+                aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
             </button>
         </div>
-    </nav>
+    </header>
     <!-- Hero Section -->
-<section class="pt-40 pb-20 px-[5%] max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center gap-12">
+    <section class="pt-40 pb-20 px-[5%] max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">Engineering</p>
-            <h1 class="text-5xl font-black leading-tight mb-6">
-                Engineering moves faster in Slack
-            </h1>
-            <p class="text-lg mb-8 max-w-md">
-                Ship better code in less time by bringing your tools, teammates and code changes together in Slack.
-            </p>
-            <div class="flex gap-4">
-                <a href="#" class="bg-[#3f0e40] text-white px-6 py-3 rounded font-bold text-sm hover:bg-[#2d0a2e] transition-colors">
-                    REQUEST A DEMO
-                </a>
-                <a href="#" class="border-2 border-[#1d1c1d] dark:border-white text-[#1d1c1d] dark:text-white px-6 py-3 rounded font-bold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    GET STARTED
-                </a>
-            </div>
-        </div>
-
-<div class="relative cursor-pointer group transition-transform duration-300   ">    
-    <div class="relative cursor-pointer group" onclick="document.getElementById('videoModal').classList.remove('hidden')">
-        <img src="../assets/solutions/ia4-img-video-thumb-eng.jpg" 
-             alt="Slack Preview" 
-             class="w-full max-w-xl ">
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-24 h-16 bg-black/50  flex items-center justify-center hover:scale-110 transition">
-                <i class="fa-solid fa-play text-white text-xl ml-1"></i>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- Video Modal -->
-<div id="videoModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-8"
-     onclick="if(event.target===this){closeModal()}">
-    <button onclick="closeModal()" 
-    class="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-    <video 
-        id="heroVideo"
-        controls
-        class="w-full max-w-4xl rounded-2xl shadow-2xl"
-        src="../assets/solutions/hero-video.mp4">
-    </video>
-
-</div>
-</section>
-
-<!-- Solve Issues Section -->
-<section class="py-20 px-[5%] max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center gap-16">
-
-        <div class="flex-1 flex justify-center relative min-h-96 mt-20 w-full max-w-xl ">
-            <div class="absolute bottom-0 left-0 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tr-[50%] rounded-br-[20%]"></div>
-
-            <div class="absolute bottom-8  left-5 w-[480px] rounded-2xl overflow-hidden shadow-2xl z-10">
-                <video 
-                autoplay 
-                muted 
-                loop 
-                playsinline
-                class="w-full h-full object-cover">
-                <source src="../assets/solutions/ia4-solutions-eng-incident.webm" type="video/webm">
-                </video>
-            </div>
-        </div>
-
-        <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
-                Solve Issues Faster
-            </p>
-            <h2 class="text-4xl font-black leading-tight mb-8">
-                Maximize uptime with a speedy response
-            </h2>
-
-            <ul class="space-y-4 mb-10">
-                <li class="flex items-center gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Pipe real-time alerts into channels automatically</span>
-                </li>
-
-                <li class="flex items-center gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Run parallel investigations to find answers quickly</span>
-                </li>
-
-                <li class="flex items-center gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Create one source of truth for fast, easy analysis</span>
-                </li>
-            </ul>
-
-            <blockquote class="border-l-0 pl-0">
-                <p class="text-gray-600 dark:text-gray-400 italic text-sm leading-relaxed mb-4">
-                    "We've reduced the mean time to resolution to under five minutes. It's been phenomenally successful in a very short period of time."
+                <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">Engineering
                 </p>
-                <div class="flex items-center gap-3">
-                    <img src="../assets/solutions/vodafone-logo.png" 
-                         alt="Vodafone" class="h-6">
-                    <div>
-                        <p class="font-bold text-sm">Paul Whyte</p>
-                        <p class="text-gray-500 text-xs">Former Head of Systems Engineering</p>
+                <h1 class="text-5xl font-black leading-tight mb-6">
+                    Engineering moves faster in Slack
+                </h1>
+                <p class="text-lg mb-8 max-w-md">
+                    Ship better code in less time by bringing your tools, teammates and code changes together in Slack.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="bg-[#3f0e40] text-white px-6 py-3 rounded font-bold text-sm hover:bg-[#2d0a2e] transition-colors">
+                        REQUEST A DEMO
+                    </a>
+                    <a href="#"
+                        class="border-2 border-[#1d1c1d] dark:border-white text-[#1d1c1d] dark:text-white px-6 py-3 rounded font-bold text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        GET STARTED
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative cursor-pointer group transition-transform duration-300   ">
+                <div class="relative cursor-pointer group"
+                    onclick="document.getElementById('videoModal').classList.remove('hidden')">
+                    <img src="../assets/solutions/ia4-img-video-thumb-eng.jpg" alt="Slack Preview"
+                        class="w-full max-w-xl ">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-16 bg-black/50  flex items-center justify-center hover:scale-110 transition">
+                            <i class="fa-solid fa-play text-white text-xl ml-1"></i>
+                        </div>
                     </div>
                 </div>
-            </blockquote>
+            </div>
         </div>
-    </div>
-</section>
 
-<!-- Deploy Efficiently Section -->
-<section class="py-20 px-[5%] max-w-7xl mx-auto relative">
-    <div class="flex flex-col md:flex-row items-center gap-16">
+        <!-- Video Modal -->
+        <div id="videoModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-8"
+            onclick="if(event.target===this){closeModal()}">
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 text-white text-4xl hover:text-gray-300 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <video id="heroVideo" controls class="w-full max-w-4xl rounded-2xl shadow-2xl"
+                src="../assets/solutions/hero-video.mp4">
+            </video>
 
-        <!-- Left Content -->
-        <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
-                Deploy Efficiently
-            </p>
+        </div>
+    </section>
 
-            <h2 class="text-4xl font-black leading-tight mb-8">
-                Align your team and processes
-            </h2>
-        <ul class="space-y-4 mb-10">
+    <!-- Solve Issues Section -->
+    <section class="py-20 px-[5%] max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-16">
 
-            <li class="flex items-start gap-3">
-                <span class="check-icon">
-                <i class="fa-solid fa-check"></i>
-                </span>
-                <span >
-                    Bring documentation into channels for informed decisions pre-code
-                </span>
-            </li>
+            <div class="flex-1 flex justify-center relative min-h-96 mt-20 w-full max-w-xl ">
+                <div
+                    class="absolute bottom-0 left-0 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tr-[50%] rounded-br-[20%]">
+                </div>
 
-            <li class="flex items-start gap-3">
-                <span class="check-icon">
-                <i class="fa-solid fa-check"></i>
-                </span>
-                <span >
-                    Establish a single place for code review and testing
-                </span>
-            </li>
+                <div class="absolute bottom-8  left-5 w-[480px] rounded-2xl overflow-hidden shadow-2xl z-10">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="../assets/solutions/ia4-solutions-eng-incident.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
 
-            <li class="flex items-start gap-3">
-                
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >
-                        Integrate tools to boost deployment visibility and automation
-                    </span>
-            
-            </li>
+            <div class="flex-1">
+                <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
+                    Solve Issues Faster
+                </p>
+                <h2 class="text-4xl font-black leading-tight mb-8">
+                    Maximize uptime with a speedy response
+                </h2>
 
-        </ul>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Pipe real-time alerts into channels automatically</span>
+                    </li>
 
-            <blockquote>
-                <p class="text-gray-600 dark:text-gray-400 italic text-sm leading-relaxed mb-4">
-                    "Today's developers fundamentally work more horizontally than vertically, and Slack helps to enable this way of working."
+                    <li class="flex items-center gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Run parallel investigations to find answers quickly</span>
+                    </li>
+
+                    <li class="flex items-center gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Create one source of truth for fast, easy analysis</span>
+                    </li>
+                </ul>
+
+                <blockquote class="border-l-0 pl-0">
+                    <p class="text-gray-600 dark:text-gray-400 italic text-sm leading-relaxed mb-4">
+                        "We've reduced the mean time to resolution to under five minutes. It's been phenomenally
+                        successful in a very short period of time."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img src="../assets/solutions/vodafone-logo.png" alt="Vodafone" class="h-6">
+                        <div>
+                            <p class="font-bold text-sm">Paul Whyte</p>
+                            <p class="text-gray-500 text-xs">Former Head of Systems Engineering</p>
+                        </div>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deploy Efficiently Section -->
+    <section class="py-20 px-[5%] max-w-7xl mx-auto relative">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+
+            <!-- Left Content -->
+            <div class="flex-1">
+                <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
+                    Deploy Efficiently
                 </p>
 
-                <div class="flex items-center gap-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
-                         class="h-6">
+                <h2 class="text-4xl font-black leading-tight mb-8">
+                    Align your team and processes
+                </h2>
+                <ul class="space-y-4 mb-10">
 
+                    <li class="flex items-start gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>
+                            Bring documentation into channels for informed decisions pre-code
+                        </span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>
+                            Establish a single place for code review and testing
+                        </span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>
+                            Integrate tools to boost deployment visibility and automation
+                        </span>
+
+                    </li>
+
+                </ul>
+
+                <blockquote>
+                    <p class="text-gray-600 dark:text-gray-400 italic text-sm leading-relaxed mb-4">
+                        "Today's developers fundamentally work more horizontally than vertically, and Slack helps to
+                        enable this way of working."
+                    </p>
+
+                    <div class="flex items-center gap-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
+                            class="h-6">
+
+                        <div>
+                            <p class="font-bold text-sm">Martin Wildberger</p>
+                            <p class="text-gray-500 text-xs">Executive Vice President of Innovation and Technology</p>
+                        </div>
+                    </div>
+                </blockquote>
+            </div>
+
+            <div class="relative flex-1 flex justify-center items-center min-h-[500px] mt-20 w-full max-w-xl">
+
+                <div
+                    class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tl-[50%] rounded-bl-[20%]">
+                </div>
+
+                <div
+                    class="absolute right-5 top-1/2 -translate-y-1/2 w-[480px] rounded-2xl overflow-hidden shadow-2xl z-10">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="../assets/solutions/ia4-solutions-eng-deploy@2x.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Work Happier Section -->
+    <section class="py-20 px-[5%] bg-[rgb(246,239,232)] dark:bg-[#1a1d21]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+
+            <div class="flex-1 flex justify-center items-center">
+                <img src="../assets/solutions/ia4-stay-productive.png" alt="Team Illustration"
+                    class="w-full max-w-lg object-contain">
+            </div>
+
+            <!-- Right Content -->
+            <div class="flex-1">
+                <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
+                    Work Happier
+                </p>
+                <h2 class="text-4xl font-black leading-tight mb-8">
+                    Stay productive and engaged
+                </h2>
+
+                <!-- Feature List -->
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-start gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Get new devs up to speed faster with an easily referenced record of work</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Automate away low-value, routine tasks</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="check-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span>Customize Slack with workflows, apps and bots</span>
+                    </li>
+                </ul>
+
+                <!-- Stats -->
+                <div class="flex gap-12">
                     <div>
-                        <p class="font-bold text-sm">Martin Wildberger</p>
-                        <p class="text-gray-500 text-xs">Executive Vice President of Innovation and Technology</p>
+                        <p class="text-5xl font-black text-[#1d1c1d] dark:text-white">53%</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">of developers use Slack¹</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-black text-[#1d1c1d] dark:text-white">700k+</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">daily active registered developers²</p>
                     </div>
                 </div>
-            </blockquote>
-        </div>
 
-        <div class="relative flex-1 flex justify-center items-center min-h-[500px] mt-20 w-full max-w-xl">
-
-            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[450px] bg-[#f5f0eb] dark:bg-[#2a2420] rounded-tl-[50%] rounded-bl-[20%]"></div>
-
-            <div class="absolute right-5 top-1/2 -translate-y-1/2 w-[480px] rounded-2xl overflow-hidden shadow-2xl z-10">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="../assets/solutions/ia4-solutions-eng-deploy@2x.mp4" type="video/mp4">
-                </video>
+                <div class="mt-6 text-xs text-gray-400 space-y-1">
+                    <p>¹ Source: 2020 StackOverflow developer survey</p>
+                    <p>² Slack 2019</p>
+                </div>
             </div>
 
         </div>
-    </div>
-</section>
-<!-- Work Happier Section -->
-<section class="py-20 px-[5%] bg-[rgb(246,239,232)] dark:bg-[#1a1d21]">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+    </section>
 
-        <div class="flex-1 flex justify-center items-center">
-    <img src="../assets/solutions/ia4-stay-productive.png" 
-         alt="Team Illustration" 
-         class="w-full max-w-lg object-contain">
-</div>
+    <!-- Integrations Section -->
 
-        <!-- Right Content -->
-        <div class="flex-1">
-            <p class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-gray-900 mb-4">
-                Work Happier
+    <section class="py-20 px-[5%] text-center">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-black mb-3">2,600+ integrations and counting</h2>
+            <p class=" mb-3">
+                Slack connects with all your favorite tools, like GitHub, Jenkins, Jira, PagerDuty and more.
             </p>
-            <h2 class="text-4xl font-black leading-tight mb-8">
-                Stay productive and engaged
-            </h2>
+            <a href="#"
+                class="text-blue-600 dark:text-blue-400 font-medium hover:underline inline-flex items-center gap-1 mb-12">
+                See all engineering integrations →
+            </a>
 
-            <!-- Feature List -->
-            <ul class="space-y-4 mb-10">
-                <li class="flex items-start gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Get new devs up to speed faster with an easily referenced record of work</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Automate away low-value, routine tasks</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="check-icon">
-                    <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span >Customize Slack with workflows, apps and bots</span>
-                </li>
-            </ul>
+            <div class="flex flex-col gap-8">
 
-            <!-- Stats -->
-            <div class="flex gap-12">
-                <div>
-                    <p class="text-5xl font-black text-[#1d1c1d] dark:text-white">53%</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">of developers use Slack¹</p>
+                <!-- Row -->
+                <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
+
+                    <img src="../assets/solutions/img1.png" alt="GitHub">
+                    <img src="../assets/solutions/img2.png" alt="Terminal">
+                    <img src="../assets/solutions/img3.png" alt="Stack Overflow">
+                    <img src="../assets/solutions/img4.png" alt="Jira">
+                    <img src="../assets/solutions/img5.png" alt="1Password">
+                    <img src="../assets/solutions/img6.png" alt="PagerDuty">
+                    <img src="../assets/solutions/img7.png" alt="Mulesoft">
+                    <img src="../assets/solutions/img8.png" alt="Azure">
                 </div>
-                <div>
-                    <p class="text-5xl font-black text-[#1d1c1d] dark:text-white">700k+</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">daily active registered developers²</p>
+
+                <!-- Row -->
+                <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
+
+                    <img src="../assets/solutions/img9.png" alt="Datadog">
+                    <img src="../assets/solutions/img10.png" alt="GitLab">
+                    <img src="../assets/solutions/img11.png" alt="ServiceNow">
+                    <img src="../assets/solutions/img12.png" alt="Opsgenie">
+                    <img src="../assets/solutions/img13.png" alt="Jenkins">
+                    <img src="../assets/solutions/img14.png" alt="CircleCI">
+                    <img src="../assets/solutions/img15.png" alt="Zapier">
+                    <img src="../assets/solutions/img16.png" alt="Zoom">
                 </div>
+
             </div>
 
-            <div class="mt-6 text-xs text-gray-400 space-y-1">
-                <p>¹ Source: 2020 StackOverflow developer survey</p>
-                <p>² Slack 2019</p>
-            </div>
-        </div>
+            <!-- See How Slack Works Section -->
 
-    </div>
-</section>
+            <section class="py-10 px-[5%] mt-24">
+                <div class="max-w-7xl mx-auto">
 
-<!-- Integrations Section -->
+                    <h2 class="text-3xl font-black text-center mb-12">
+                        See how Slack works for Engineering teams
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-<section class="py-20 px-[5%] text-center">
-    <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-black mb-3">2,600+ integrations and counting</h2>
-        <p class=" mb-3">
-            Slack connects with all your favorite tools, like GitHub, Jenkins, Jira, PagerDuty and more.
-        </p>
-        <a href="#" class="text-blue-600 dark:text-blue-400 font-medium hover:underline inline-flex items-center gap-1 mb-12">
-            See all engineering integrations →
-        </a>
+                        <!-- Card 1 -->
+                        <div
+                            class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                            <div class="w-full h-48 p-3 overflow-hidden">
+                                <img src="../assets/solutions/img-promo-01.png"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Guide</p>
+                                <h3 class="font-black text-lg leading-tight mb-auto">
+                                    5 stages of the software development lifecycle
+                                </h3>
+                                <a href="#"
+                                    class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                                    LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
 
-<div class="flex flex-col gap-8">
+                        <!-- Card 2 -->
+                        <div
+                            class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                            <div class="w-full h-48 p-3 overflow-hidden">
+                                <img src="../assets/solutions/img-promo-02.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">e-book</p>
+                                <h3 class="font-black text-lg leading-tight mb-auto">
+                                    Software engineering and Slack: a love story
+                                </h3>
+                                <a href="#"
+                                    class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                                    LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
 
-    <!-- Row -->
-    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
-        
-        <img src="../assets/solutions/img1.png" alt="GitHub" >
-        <img src="../assets/solutions/img2.png" alt="Terminal" >
-        <img src="../assets/solutions/img3.png" alt="Stack Overflow" >
-        <img src="../assets/solutions/img4.png" alt="Jira" >
-        <img src="../assets/solutions/img5.png" alt="1Password" >
-        <img src="../assets/solutions/img6.png" alt="PagerDuty" >
-        <img src="../assets/solutions/img7.png" alt="Mulesoft" >
-        <img src="../assets/solutions/img8.png" alt="Azure">
-    </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                            <div class="w-full h-48 p-3 overflow-hidden">
+                                <img src="../assets/solutions/img-promo-03.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Webinar</p>
+                                <h3 class="font-black text-lg leading-tight mb-auto">
+                                    Resolve incidents faster in Slack
+                                </h3>
+                                <a href="#"
+                                    class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                                    WATCH NOW <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
 
-    <!-- Row -->
-    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-items-center cursor-pointer">
-        
-        <img src="../assets/solutions/img9.png" alt="Datadog" >
-        <img src="../assets/solutions/img10.png" alt="GitLab" >
-        <img src="../assets/solutions/img11.png" alt="ServiceNow" >
-        <img src="../assets/solutions/img12.png" alt="Opsgenie" >
-        <img src="../assets/solutions/img13.png" alt="Jenkins">
-        <img src="../assets/solutions/img14.png" alt="CircleCI" >
-        <img src="../assets/solutions/img15.png" alt="Zapier">
-        <img src="../assets/solutions/img16.png" alt="Zoom" >
-    </div>
+                        <!-- Card 4 -->
+                        <div
+                            class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
+                            <div class="w-full h-50 p-3 overflow-hidden">
+                                <img src="../assets/solutions/img-promo-04.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Guide</p>
+                                <h3 class="font-black text-lg leading-tight mb-auto">
+                                    The value of Slack for software developers
+                                </h3>
+                                <a href="#"
+                                    class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
+                                    LEARN MORE <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
 
-</div>
-
-<!-- See How Slack Works Section -->
-
-<section class="py-10 px-[5%] mt-24">
-    <div class="max-w-7xl mx-auto">
-        
-        <h2 class="text-3xl font-black text-center mb-12">
-            See how Slack works for Engineering teams
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Card 1 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-01.png" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
                 </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Guide</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        5 stages of the software development lifecycle
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+            </section>
+            <!-- FAQ Section -->
+            <section class="py-20 px-[5%]">
+                <div class="max-w-3xl mx-auto">
+
+                    <h2 class="text-3xl font-black text-center mb-16">
+                        Frequently asked questions
+                    </h2>
+                    <div class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <!-- Item -->
+                        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-lg">What are the benefits of Slack?</h3>
+
+                                <i
+                                    class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </div>
+
+                            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
+                                <p>Slack is popular among developers for a reason: it makes their work simpler and more
+                                    productive. They can choose whatever tools they like for deploys, testing, etc, and
+                                    integrate them into Slack. This increases the value of their existing tech stack,
+                                    and centralizes team discussions.Slack is infinitely customizable: bots, workflows,
+                                    and apps mean each team can configure Slack to fit its own development cycle. Find
+                                    out more reasons <a href="#" class="text-blue-600 dark:text-blue-400 underline">why
+                                        engineering teams love Slack.</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-lg">How do I add a bot to Slack?</h3>
+                                <i
+                                    class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </div>
+
+                            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
+                                <p>Adding a bot to Slack is a smart way to boost team productivity. Bots can be added by
+                                    going to the <a href="#" class="text-blue-600 dark:text-blue-400 underline">Slack
+                                        Marketplace</a> and installing them to your workspace (you may need an admin to
+                                    do this). Or you can <a href="#"
+                                        class="text-blue-600 dark:text-blue-400 underline">create your own custom
+                                        bots</a>.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-lg">Where is Slack data stored?</h3>
+                                <i
+                                    class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </div>
+
+                            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
+                                <p>Slack allows global teams to choose the region where certain types of data at rest
+                                    are stored. Currently Slack offers data residency in six regions: Australia, Canada,
+                                    France, Germany, Japan and the U.K. Learn more about how <a href="#"
+                                        class="text-blue-600 dark:text-blue-400 underline">data residency works at
+                                        Slack</a>.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-lg">What is a Slack workspace?</h3>
+                                <i
+                                    class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </div>
+
+                            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
+                                <p>A Slack workspace is a shared hub made up of channels where team members can
+                                    communicate and work together. You can join as many workspaces as you'd like.</p>
+                                <p>Slack admins can set permissions for who is allowed to join a workspace and what
+                                    files and messages they can access. They can also choose which bots or apps are
+                                    installed. <a href="#" class="text-blue-600 dark:text-blue-400 underline">Learn more
+                                        about getting started with Slack workspaces</a>.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-lg">Is Slack secure?</h3>
+                                <i
+                                    class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </div>
+                            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
+                                <p>Yes. You can securely discuss confidential information in Slack. It delivers
+                                    enterprise-grade security at every layer, adhering to multiple compliance
+                                    certifications, including SOC 2, SOC 3, ISO/IEC 27001 and more. Slack is
+                                    GDPR-compliant and can be configured for HIPAA and FINRA compliance. It is FedRAMP
+                                    Moderate authorized.</p>
+                                <p>In addition, Slack offers security features like Enterprise Key Management, that
+                                    allow admins fine-grained control over data encryption. You can also integrate your
+                                    own security tools with Slack to get instant notification if a threat is detected.
+                                    Learn more about Slack's comprehensive security program <a href="#"
+                                        class="text-blue-600 dark:text-blue-400 underline">here</a>.</p>
+                            </div>
+                        </div>
+
+                    </div>
+            </section>
+            <section style="background-color: #4a154b;" class="relative pt-20 pb-32 overflow-hidden">
+                <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+                    <h2 class="text-white text-4xl md:text-[54px] font-black leading-tight mb-10">
+                        Choose a better way to work
+                    </h2>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button
+                            class="bg-white text-[#4a154b] px-10 py-4 rounded-md font-bold hover:bg-gray-100 transition-all shadow-lg w-full sm:w-auto">
+                            GET STARTED
+                        </button>
+                        <button
+                            class="border-2 border-white text-white px-10 py-4 rounded-md font-bold hover:bg-white/10 transition-all w-full sm:w-auto">
+                            REQUEST A DEMO
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-02.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute bottom-0 left-0 w-full leading-[0] z-0">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+                        class="relative block w-full h-[80px] md:h-[120px] fill-white dark:fill-[#1a1d21] transition-colors duration-300">
+                        <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z"></path>
+                    </svg>
                 </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">e-book</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        Software engineering and Slack: a love story
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+
+            </section>
+
+            <footer
+                class="bg-white dark:bg-[#1a1d21] pt-16 pb-8 px-[5%] font-sans text-[#1d1c1d] dark:text-[#d1d2d3] transition-colors duration-300">
+                <div class="w-full max-w-7xl mx-auto px-4">
+
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                        <div
+                            class="flex items-center group cursor-pointer text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <span class="font-semibold text-sm">Change Region</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+
+                        <div class="flex items-center space-x-6 text-gray-700 dark:text-gray-300">
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-x-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-youtube text-lg"></i>
+                            </a>
+                            <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                                <i class="fab fa-tiktok text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-200 dark:border-white/10 mb-6">
+
                 </div>
-            </div>
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
 
-            <!-- Card 3 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-48 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-03.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="col-span-2 lg:col-span-1">
+                            <a href="#">
+                                <img src="https://a.slack-edge.com/38f0e7c/marketing/img/nav/logo.svg" alt="Slack Logo"
+                                    class="w-14 h-14 object-contain dark:invert transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Product</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">Watch Demo</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Pricing</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Paid vs. Free</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Accessibility</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Featured Releases</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Changelog</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Status</a></li>
+                            </ul>
+                            <h4 class="font-bold text-[15px] mt-10 mb-5 uppercase tracking-wider">Why Slack?</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack vs. Email</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Channels</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Engagement</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Scale</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Watch Demo</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Features</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">Channels</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Connect</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Workflow Builder</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Messaging</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Huddles</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Canvas</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Lists</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Clips</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Connect</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Workflow Builder</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Messaging</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Huddles</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Canvas</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Lists</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Solutions</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">Engineering</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">IT</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Customer Service</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Sales</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Project Management</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Marketing</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Security</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Engineering</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">IT</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Customer Service</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Sales</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Project Management</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Marketing</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Security</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Resources</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">Help Center</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">What's New</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Resources Library</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Blog</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Community</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Customer Stories</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Events</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Help Center</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">What's New</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Resources Library</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Blog</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Community</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Customer Stories</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Events</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Company</h4>
+                            <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                                <li><a href="#" class="hover:text-[#1264a3]">About Us</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">News</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Media Kit</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Brand Center</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Careers</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Shop</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">About Us</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">News</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Media Kit</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Brand Center</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Careers</a></li>
+                                <li><a href="#" class="hover:text-[#1264a3]">Slack Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-200 dark:border-white/10 mb-6">
+
+                    <div
+                        class="flex flex-col lg:flex-row justify-between items-center text-[12px] md:text-[13px] font-bold text-[#1d1c1d] dark:text-[#d1d2d3]">
+                        <div
+                            class="flex flex-wrap justify-center lg:justify-start items-center gap-x-5 gap-y-3 mb-4 lg:mb-0">
+
+                            <a href="#" class="flex items-center gap-1.5 text-[#1264a3] hover:underline">
+                                <span class="text-[16px]">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </span>
+                                Download Slack
+                            </a>
+
+                            <a href="#" class="hover:text-[#1264a3] hover:underline">Privacy</a>
+                            <a href="#" class="hover:text-[#1264a3] hover:underline">Terms</a>
+                            <a href="#" class="hover:text-[#1264a3] hover:underline">Cookie Preferences</a>
+
+                            <a href="#" class="flex items-center gap-1.5 hover:text-[#1264a3] hover:underline">
+                                Your Privacy Choices
+                                <svg class="w-6 h-3" viewBox="0 0 30 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.4 12.8h6.8l3.1-11.6H7.4C3.3 1.2 0 4.5 0 8.6s3.3 7.4 7.4 7.4z"
+                                        fill="#005FFF">
+                                    </path>
+                                    <path d="M22.6 0H15.8l-3.1 11.6h6.8c4.1 0 7.4-3.3 7.4-7.4S26.7 0 22.6 0z"
+                                        fill="#FFFFFF">
+                                    </path>
+                                    <path d="M22.6 1.2h-6.8l-3.1 11.6h6.8c3.4 0 6.2-2.8 6.2-6.2s-2.8-6.2-6.2-6.2z"
+                                        fill="#005FFF"></path>
+                                    <path d="M10.8 3.9l1.4-1.4 4.7 4.7-4.7 4.7-1.4-1.4 3.3-3.3-3.3-3.3z" fill="#FFFFFF">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="text-[#696969] dark:text-gray-500 text-center lg:text-right font-normal leading-relaxed max-w-[500px]">
+                            <p>©2026 Slack Technologies, LLC, a Salesforce company. All rights reserved. Various
+                                trademarks held
+                                by their
+                                respective owners.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Webinar</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        Resolve incidents faster in Slack
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        WATCH NOW <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+            </footer>
 
-            <!-- Card 4 -->
-            <div class="group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 flex flex-col min-h-[420px]">
-                <div class="w-full h-50 p-3 overflow-hidden">
-                    <img src="../assets/solutions/img-promo-04.jpg" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5 flex flex-col flex-1">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Guide</p>
-                    <h3 class="font-black text-lg leading-tight mb-auto">
-                        The value of Slack for software developers
-                    </h3>
-                    <a href="#" class="mt-6 text-blue-600 dark:text-blue-400 font-bold text-sm inline-flex items-center gap-2 hover:gap-4 transition-all">
-                        LEARN MORE <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+            <script src="../js/solutions.js"></script>
+            <script src="../js/main.js"></script>
 
-        </div>
-    </div>
-</section>
-<!-- FAQ Section -->
-<section class="py-20 px-[5%]">
-    <div class="max-w-3xl mx-auto">
-        
-        <h2 class="text-3xl font-black text-center mb-16">
-            Frequently asked questions
-        </h2>
-        <div class="divide-y divide-gray-200 dark:divide-gray-700">
-        <!-- Item -->
-        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg">What are the benefits of Slack?</h3>
 
-                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
-            </div>
-
-            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
-                <p>Slack is popular among developers for a reason: it makes their work simpler and more productive. They can choose whatever tools they like for deploys, testing, etc, and integrate them into Slack. This increases the value of their existing tech stack, and centralizes team discussions.Slack is infinitely customizable: bots, workflows, and apps mean each team can configure Slack to fit its own development cycle. Find out more reasons  <a href="#" class="text-blue-600 dark:text-blue-400 underline">why engineering teams love Slack.</a></p>
-            </div>
-        </div>
-
-        <!-- Item -->
-        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg">How do I add a bot to Slack?</h3>
-                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
-            </div>
-
-            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
-                    <p>Adding a bot to Slack is a smart way to boost team productivity. Bots can be added by going to the <a href="#" class="text-blue-600 dark:text-blue-400 underline">Slack Marketplace</a> and installing them to your workspace (you may need an admin to do this). Or you can <a href="#" class="text-blue-600 dark:text-blue-400 underline">create your own custom bots</a>.</p>
-            </div>
-        </div>
-
-        <!-- Item -->
-        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg">Where is Slack data stored?</h3>
-                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
-            </div>
-
-            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
-                <p>Slack allows global teams to choose the region where certain types of data at rest are stored. Currently Slack offers data residency in six regions: Australia, Canada, France, Germany, Japan and the U.K. Learn more about how <a href="#" class="text-blue-600 dark:text-blue-400 underline">data residency works at Slack</a>.</p>
-            </div>
-        </div>
-
-        <!-- Item -->
-        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg">What is a Slack workspace?</h3>
-                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
-            </div>
-
-            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
-                <p>A Slack workspace is a shared hub made up of channels where team members can communicate and work together. You can join as many workspaces as you'd like.</p>
-                <p>Slack admins can set permissions for who is allowed to join a workspace and what files and messages they can access. They can also choose which bots or apps are installed. <a href="#" class="text-blue-600 dark:text-blue-400 underline">Learn more about getting started with Slack workspaces</a>.</p>
-            </div>
-        </div>
-
-        <!-- Item -->
-        <div class="faq-item py-6 cursor-pointer" onclick="toggleFAQ(this)">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg">Is Slack secure?</h3>
-                <i class="fa-solid fa-chevron-down faq-icon w-5 h-5 transition-transform duration-300"></i>
-            </div>
-            <div class="faq-answer hidden mt-4 leading-relaxed space-y-3 text-left">
-                <p>Yes. You can securely discuss confidential information in Slack. It delivers enterprise-grade security at every layer, adhering to multiple compliance certifications, including SOC 2, SOC 3, ISO/IEC 27001 and more. Slack is GDPR-compliant and can be configured for HIPAA and FINRA compliance. It is FedRAMP Moderate authorized.</p>
-                <p>In addition, Slack offers security features like Enterprise Key Management, that allow admins fine-grained control over data encryption. You can also integrate your own security tools with Slack to get instant notification if a threat is detected. Learn more about Slack's comprehensive security program <a href="#" class="text-blue-600 dark:text-blue-400 underline">here</a>.</p>        </div>
-        </div>
-
-</div>
-</section>
-
-    <script src="../js/solutions.js"></script>
-    <script src="../js/main.js"></script>
-    
-    
 </body>
 
 </html>

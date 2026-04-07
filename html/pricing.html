@@ -103,18 +103,18 @@
     <header id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
         <div class="flex items-center gap-8">
-            <a href="index.html">
+            <a href="../index.html">
                 <img src="https://a.slack-edge.com/80588/img/slack_logo_240.png" alt="Slack"
                     class="h-8 dark:invert transition-all duration-300">
             </a>
             <nav class="hidden md:block" aria-label="Primary">
                 <ul class="flex gap-6 font-semibold text-[15px] tracking-[-0.01em]">
                     <li><a href="#" class="hover:text-slack-blue transition-colors">Features</a></li>
-                    <li><a href="html/solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
-                    <li><a href="html/enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a>
+                    <li><a href="solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
+                    <li><a href="enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a>
                     </li>
                     <li><a href="#" class="hover:text-slack-blue transition-colors">Resources</a></li>
-                    <li><a href="html/pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
+                    <li><a href="pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
                 </ul>
             </nav>
         </div>
@@ -138,7 +138,7 @@
                 class="hidden lg:inline-flex text-[15px] font-semibold hover:text-slack-blue transition-colors">Sign
                 in</a>
 
-            <a href="html/contact-sales.html"
+            <a href="contact-sales.html"
                 class="hidden lg:inline-flex font-bold text-[13px] tracking-[0.08em] uppercase border-2 border-slack-purple text-slack-purple px-4 py-2 rounded hover:bg-slack-purple hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-slack-purple transition-all duration-300">
                 REQUEST A DEMO
             </a>
@@ -195,7 +195,7 @@
         </section>
 
         <!-- plans section -->
-        <section class="plans-section">
+        <section class="plans-section flex flex-wrap">
             <div class="plan-card plan-card-first">
                 <h2 class="plan-title">Free</h2>
                 <p class="plan-description">A simpler way to chat and collaborate</p>
@@ -360,7 +360,7 @@
             </div>
         </div>
 
-        <section class="pt-20 px-16 py-20 bg-slack-purple text-white">
+        <!-- <section class="pt-20 px-16 py-20 bg-slack-purple text-white">
             <div class="flex flex-col items-center">
                 <h2 class="text-6xl font-bold">
                     Whatever work you do, you can do it in Slack
@@ -374,8 +374,33 @@
                     </button>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
+    <section style="background-color: #4a154b;" class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+            <h2 class="text-white text-4xl md:text-[54px] font-black leading-tight mb-10">
+                Choose a better way to work
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                    class="bg-white text-[#4a154b] px-10 py-4 rounded-md font-bold hover:bg-gray-100 transition-all shadow-lg w-full sm:w-auto">
+                    GET STARTED
+                </button>
+                <button
+                    class="border-2 border-white text-white px-10 py-4 rounded-md font-bold hover:bg-white/10 transition-all w-full sm:w-auto">
+                    REQUEST A DEMO
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full leading-[0] z-0">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+                class="relative block w-full h-[80px] md:h-[120px] fill-white dark:fill-[#1a1d21] transition-colors duration-300">
+                <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z"></path>
+            </svg>
+        </div>
+
+    </section>
     <footer
         class="bg-white dark:bg-[#1a1d21] pt-16 pb-8 px-[5%] font-sans text-[#1d1c1d] dark:text-[#d1d2d3] transition-colors duration-300">
         <div class="w-full max-w-7xl mx-auto px-4">
