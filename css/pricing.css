@@ -1,0 +1,11 @@
+body {
+  font-family: sans-serif;
+}
+
+.faq-item[data-open="true"] .faq-answer {
+  display: block;
+}
+
+.faq-item[data-open="true"] .faq-icon {
+  transform: rotate(180deg);
+}
