@@ -1,42 +1,609 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Pricing | Slack</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/pricing.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'slack-purple': '#3f0e40' } } } }
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "slack-purple": "#4a154b",
+                        "slack-ink": "#1d1c1d",
+                        "slack-accent": "#611f69",
+                    },
+                },
+            },
+        };
     </script>
+    <style type="text/tailwindcss">
+        @layer components {
+        .plans-section {
+          @apply flex flex-wrap justify-center gap-0 px-16 pb-12;
+        }
+
+        .plan-card {
+          @apply w-[25%] border border-[#dedede] bg-white p-7 shadow-[0_10px_40px_rgba(0,0,0,0.04)] dark:border-[#39414c] dark:bg-[#22262c] dark:shadow-[0_16px_40px_rgba(0,0,0,0.28)];
+        }
+
+        .plan-card-first {
+          @apply rounded-bl-[10px] rounded-tl-[10px];
+        }
+
+        .plan-card-last {
+          @apply rounded-br-[10px] rounded-tr-[10px];
+        }
+
+        .plan-card-featured {
+          @apply relative border-[3px] border-[#a64ec2] shadow-[0_16px_50px_rgba(97,31,105,0.12)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.28)];
+        }
+
+        .plan-title {
+          @apply text-[2rem] font-bold text-black dark:invert;
+        }
+
+        .plan-description {
+          @apply mt-3 text-lg text-[#454245] dark:text-[#b8bec8];
+        }
+
+        .plan-offer {
+          @apply mt-3 inline-flex rounded-full border border-[#d7a6ff] px-4 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slack-accent;
+        }
+
+        .plan-price-row {
+          @apply mt-8 flex items-end gap-2;
+        }
+
+        .plan-price {
+          @apply text-5xl font-bold text-black dark:text-white;
+        }
+
+        .plan-currency {
+          @apply pb-2 text-lg text-[#5e5a5e];
+        }
+
+        .plan-button {
+          @apply mt-8 w-full rounded-md bg-slack-accent px-5 py-4 text-sm font-bold uppercase tracking-wide text-white;
+        }
+
+        .plan-feature {
+          @apply flex gap-3 mt-10;
+        }
+
+        .plan-feature-check {
+          @apply text-xl text-[#7c1fff];
+        }
+        /* ##################################### */
+
+        .faq-trigger {
+          @apply flex w-full items-center justify-between gap-6 py-8 text-left;
+        }
+
+        .faq-question {
+          @apply text-2xl font-semibold text-black dark:text-white;
+        }
+
+        .faq-icon {
+          @apply text-4xl text-[#403b5c] transition-transform;
+        }
+
+        .faq-answer {
+          @apply hidden pb-8 text-xl text-[#2f2b2f] dark:text-[#b8bec8];
+        }
+      }
+    </style>
 </head>
 
-<body class="bg-white dark:bg-[#1a1d21] text-[#1d1c1d] dark:text-[#d1d2d3]">
-
-    <nav id="navbar"
+<body class="bg-white text-slack-ink dark:bg-[#1a1d21] dark:text-[#d1d2d3]">
+    <header id="navbar"
         class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
         <div class="flex items-center gap-8">
-            <a href="../index.html" class="flex items-center">
-                <img src="../assets/logo-slack.svg" alt="Slack Logo"
-                    class="h-6 md:h-8 dark:invert transition-all duration-300">
+            <a href="../index.html">
+                <img src="https://a.slack-edge.com/80588/img/slack_logo_240.png" alt="Slack"
+                    class="h-8 dark:invert transition-all duration-300">
             </a>
-    
-            <ul class="hidden md:flex gap-6 font-bold text-sm">
-                <li><a href="solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
-                <li><a href="enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a></li>
-                <li><a href="pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
-            </ul>
+            <nav class="hidden md:block" aria-label="Primary">
+                <ul class="flex gap-6 font-semibold text-[15px] tracking-[-0.01em]">
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Features</a></li>
+                    <li><a href="solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
+                    <li><a href="enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a>
+                    </li>
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Resources</a></li>
+                    <li><a href="pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
+                </ul>
+            </nav>
         </div>
-    
+
         <div class="flex items-center gap-4">
-    
-            <button onclick="toggleTheme()"
-                class="bg-slack-purple text-white dark:bg-white dark:text-slack-purple px-6 py-2 rounded font-black text-xs uppercase shadow-md active:scale-95 transition-all duration-300">
-                Theme
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <a href="#"
+                class="hidden lg:inline-flex text-[15px] font-semibold hover:text-slack-blue transition-colors">Sign
+                in</a>
+
+            <a href="contact-sales.html"
+                class="hidden lg:inline-flex font-bold text-[13px] tracking-[0.08em] uppercase border-2 border-slack-purple text-slack-purple px-4 py-2 rounded hover:bg-slack-purple hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-slack-purple transition-all duration-300">
+                REQUEST A DEMO
+            </a>
+
+            <a href="#"
+                class="hidden sm:inline-flex bg-[#611f69] hover:bg-[#4a154b] text-white px-5 py-2 rounded font-extrabold text-[13px] tracking-[0.08em] uppercase shadow-sm active:scale-[0.98] transition-all duration-200">
+                Get started
+            </a>
+
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-controls="mobileMenu"
+                aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
             </button>
         </div>
-    </nav>
+    </header>
+
+    <main class="pt-28">
+        <section class="pb-10 text-center">
+            <h1 class="mx-auto text-5xl font-bold text-black dark:text-white">
+                Choose a paid plan built for businesses.
+            </h1>
+            <p class="mt-5 text-2xl text-black dark:text-white">
+                Or start with the basics for free, and upgrade at any time.
+            </p>
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-x-10 text-[#6e6b6f]">
+                <span>The world’s leading<br />businesses rely on Slack</span>
+
+                <img src="https://logos-world.net/wp-content/uploads/2020/09/IBM-Emblem.png" alt=""
+                    class="h-10 dark:invert" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/OpenAI_logo_2025_%28symbol%29.svg/960px-OpenAI_logo_2025_%28symbol%29.svg.png?_=20250205041901"
+                    alt="openAI" class="h-10 dark:invert" />
+                <img src="https://logos-world.net/wp-content/uploads/2022/12/Stripe-Inc-Logo-2009.png" alt=""
+                    class="h-10 dark:invert" />
+                <img src="https://www.logo.wine/a/logo/Spotify/Spotify-Black-Logo.wine.svg" alt=""
+                    class="h-20 dark:invert" />
+            </div>
+        </section>
+
+        <!-- plans section -->
+        <section class="plans-section flex flex-wrap">
+            <div class="plan-card plan-card-first">
+                <h2 class="plan-title">Free</h2>
+                <p class="plan-description">A simpler way to chat and collaborate</p>
+                <div class="mt-10 flex items-end gap-2">
+                    <span class="plan-price">$0</span>
+                    <span class="plan-currency">USD</span>
+                </div>
+                <button class="plan-button">Get Started</button>
+                <ul>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>90 days of message history</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Up to 10 app integrations</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>1:1 huddles and clips</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- card  -->
+            <div class="plan-card">
+                <h2 class="plan-title">Pro</h2>
+                <p class="plan-description">Drive productivity in one place</p>
+                <span class="plan-offer">50% off for 3 months</span>
+                <div class="plan-price-row">
+                    <span class="text-2xl font-bold text-[#7f7a80] line-through">$8.75</span>
+                    <span class="plan-price">$4.38</span>
+                    <span class="plan-currency">USD</span>
+                </div>
+                <button class="plan-button">Get Started</button>
+                <ul>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Unlimited message history</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Unlimited app integrations</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Group meetings and external messages</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- plan card -->
+            <div class="plan-card plan-card-featured">
+                <div
+                    class="absolute left-[-2px] top-[-37px] rounded-t-xl bg-[#a64ec2] px-5 py-2 text-sm font-bold uppercase text-white w-full">
+                    Best Value
+                </div>
+                <h2 class="plan-title pt-3">Business+</h2>
+                <p class="plan-description">Scale with AI-powered work</p>
+                <span class="plan-offer">50% off for 3 months</span>
+                <div class="plan-price-row">
+                    <span class="text-2xl font-bold text-[#7f7a80] line-through">$18</span>
+                    <span class="plan-price">$9</span>
+                    <span class="plan-currency">USD</span>
+                </div>
+                <button class="plan-button">Get Started</button>
+                <ul>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Advanced AI and Slackbot</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>SAML-based single sign-on</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Admin analytics and exports</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- plan card -->
+            <div class="plan-card plan-card-last">
+                <h2 class="plan-title">Enterprise+</h2>
+                <p class="plan-description">
+                    Maximize performance on the most comprehensive work OS
+                </p>
+
+                <button class="plan-button border-[3px] border-slack-accent bg-white text-slack-accent">
+                    Contact Sales
+                </button>
+                <ul>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Enterprise-grade AI</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Multiple SAML configurations</span>
+                    </li>
+                    <li class="plan-feature">
+                        <span class="plan-feature-check">✓</span>
+                        <span>Data loss prevention and compliance tools</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section
+            class="mx-auto flex max-w-7xl flex-row items-center gap-8 rounded-[28px] bg-[#f4f1f4] px-16 py-10 dark:bg-[#1f242b] p-12">
+            <div class="flex justify-center">
+                <img src="https://a.slack-edge.com/9799658/marketing/img/pricing/security-illustration.png" alt="" />
+            </div>
+
+            <div>
+                <h2 class="text-5xl font-bold text-black dark:text-white">
+                    Leading the way in enterprise security
+                </h2>
+                <ol class="mt-6 space-y-4 text-lg text-black dark:text-white">
+                    <li>Data encryption in transit and at rest</li>
+                    <li>Comprehensive compliance and assurance programs</li>
+                    <li>Audit logs, data loss prevention, single sign-on and more</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="px-16 py-12 mx-auto max-w-5xl">
+            <h2 class="text-center text-6xl font-bold text-black dark:text-white">
+                Frequently Asked Questions
+            </h2>
+            <div class="mt-8 flex justify-end">
+                <button id="open-faq-form" type="button"
+                    class="rounded-md bg-slack-accent px-5 py-3 text-sm font-bold uppercase tracking-wide text-white">
+                    Add FAQ
+                </button>
+            </div>
+            <div id="faq-list" class="mt-12 divide-y divide-[#e7e2e8] border-t border-[#e7e2e8]"></div>
+        </section>
+
+        <div id="faq-modal" class="faq-modal hidden fixed inset-0 z-[100] items-center justify-center bg-black/40 px-4">
+            <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+                <div class="flex items-center justify-between gap-4">
+                    <h3 class="text-2xl font-bold text-black">Add a new FAQ</h3>
+                    <button id="close-faq-form" type="button" class="text-3xl leading-none text-[#5e5a5e]">
+                        ×
+                    </button>
+                </div>
+                <form id="faq-form" class="mt-6 space-y-4">
+                    <label for="faq-question-input" class="mb-2 block text-sm font-bold uppercase text-[#5e5a5e]">
+                        Question
+                    </label>
+                    <input id="faq-question-input" name="question" type="text" required
+                        class="w-full rounded-md border border-[#d6d3d7] px-4 py-3 text-black outline-none focus:border-slack-accent" />
+
+                    <label for="faq-answer-input" class="mb-2 block text-sm font-bold uppercase text-[#5e5a5e]">
+                        Answer
+                    </label>
+                    <textarea id="faq-answer-input" name="answer" rows="4" required
+                        class="w-full rounded-md border border-[#d6d3d7] px-4 py-3 text-black outline-none focus:border-slack-accent"></textarea>
+                    <button type="submit" class="w-full plan-button">
+                        Save FAQ
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <section class="pt-20 px-16 py-20 bg-slack-purple text-white">
+            <div class="flex flex-col items-center">
+                <h2 class="text-6xl font-bold">
+                    Whatever work you do, you can do it in Slack
+                </h2>
+                <div class="mt-10 flex flex-row justify-center gap-20 w-7xl">
+                    <button class="plan-button w-[50%] px-10 border-2 border-white-1000 bg-white text-slack-purple">
+                        get started
+                    </button>
+                    <button class="plan-button w-[50%] px-10 border-2 border-white-1000 bg-slack-purple">
+                        talk to us
+                    </button>
+                </div>
+            </div>
+        </section> -->
+    </main>
+    <section style="background-color: #4a154b;" class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+            <h2 class="text-white text-4xl md:text-[54px] font-black leading-tight mb-10">
+                Choose a better way to work
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                    class="bg-white text-[#4a154b] px-10 py-4 rounded-md font-bold hover:bg-gray-100 transition-all shadow-lg w-full sm:w-auto">
+                    GET STARTED
+                </button>
+                <button
+                    class="border-2 border-white text-white px-10 py-4 rounded-md font-bold hover:bg-white/10 transition-all w-full sm:w-auto">
+                    REQUEST A DEMO
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full leading-[0] z-0">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none"
+                class="relative block w-full h-[80px] md:h-[120px] fill-white dark:fill-[#1a1d21] transition-colors duration-300">
+                <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z"></path>
+            </svg>
+        </div>
+
+    </section>
+    <footer
+        class="bg-white dark:bg-[#1a1d21] pt-16 pb-8 px-[5%] font-sans text-[#1d1c1d] dark:text-[#d1d2d3] transition-colors duration-300">
+        <div class="w-full max-w-7xl mx-auto px-4">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <div
+                    class="flex items-center group cursor-pointer text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                        </path>
+                    </svg>
+                    <span class="font-semibold text-sm">Change Region</span>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+
+                <div class="flex items-center space-x-6 text-gray-700 dark:text-gray-300">
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-x-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-youtube text-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-black dark:hover:text-white transition-colors">
+                        <i class="fab fa-tiktok text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-gray-200 dark:border-white/10 mb-6">
+
+        </div>
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+
+                <div class="col-span-2 lg:col-span-1">
+                    <a href="#">
+                        <img src="https://a.slack-edge.com/38f0e7c/marketing/img/nav/logo.svg" alt="Slack Logo"
+                            class="w-14 h-14 object-contain dark:invert transition-all duration-300">
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Product</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">Watch Demo</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Pricing</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Paid vs. Free</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Accessibility</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Featured Releases</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Changelog</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Status</a></li>
+                    </ul>
+                    <h4 class="font-bold text-[15px] mt-10 mb-5 uppercase tracking-wider">Why Slack?</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack vs. Email</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Channels</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Engagement</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Scale</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Watch Demo</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Features</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">Channels</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Connect</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Workflow Builder</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Messaging</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Huddles</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Canvas</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Lists</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Clips</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Connect</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Workflow Builder</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Messaging</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Huddles</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Canvas</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Lists</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Solutions</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">Engineering</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">IT</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Customer Service</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Sales</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Project Management</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Marketing</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Security</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Engineering</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">IT</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Customer Service</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Sales</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Project Management</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Marketing</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Security</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">Help Center</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">What's New</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Resources Library</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Blog</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Community</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Customer Stories</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Events</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Help Center</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">What's New</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Resources Library</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Blog</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Community</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Customer Stories</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[15px] mb-5 uppercase tracking-wider">Company</h4>
+                    <ul class="space-y-4 text-[15px] text-[#454545] dark:text-gray-400">
+                        <li><a href="#" class="hover:text-[#1264a3]">About Us</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">News</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Media Kit</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Brand Center</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Careers</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Shop</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">About Us</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">News</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Media Kit</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Brand Center</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Careers</a></li>
+                        <li><a href="#" class="hover:text-[#1264a3]">Slack Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-gray-200 dark:border-white/10 mb-6">
+
+            <div
+                class="flex flex-col lg:flex-row justify-between items-center text-[12px] md:text-[13px] font-bold text-[#1d1c1d] dark:text-[#d1d2d3]">
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-x-5 gap-y-3 mb-4 lg:mb-0">
+
+                    <a href="#" class="flex items-center gap-1.5 text-[#1264a3] hover:underline">
+                        <span class="text-[16px]">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </span>
+                        Download Slack
+                    </a>
+
+                    <a href="#" class="hover:text-[#1264a3] hover:underline">Privacy</a>
+                    <a href="#" class="hover:text-[#1264a3] hover:underline">Terms</a>
+                    <a href="#" class="hover:text-[#1264a3] hover:underline">Cookie Preferences</a>
+
+                    <a href="#" class="flex items-center gap-1.5 hover:text-[#1264a3] hover:underline">
+                        Your Privacy Choices
+                        <svg class="w-6 h-3" viewBox="0 0 30 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.4 12.8h6.8l3.1-11.6H7.4C3.3 1.2 0 4.5 0 8.6s3.3 7.4 7.4 7.4z" fill="#005FFF">
+                            </path>
+                            <path d="M22.6 0H15.8l-3.1 11.6h6.8c4.1 0 7.4-3.3 7.4-7.4S26.7 0 22.6 0z" fill="#FFFFFF">
+                            </path>
+                            <path d="M22.6 1.2h-6.8l-3.1 11.6h6.8c3.4 0 6.2-2.8 6.2-6.2s-2.8-6.2-6.2-6.2z"
+                                fill="#005FFF"></path>
+                            <path d="M10.8 3.9l1.4-1.4 4.7 4.7-4.7 4.7-1.4-1.4 3.3-3.3-3.3-3.3z" fill="#FFFFFF"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div
+                    class="text-[#696969] dark:text-gray-500 text-center lg:text-right font-normal leading-relaxed max-w-[500px]">
+                    <p>©2026 Slack Technologies, LLC, a Salesforce company. All rights reserved. Various trademarks held
+                        by their
+                        respective owners.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="../js/main.js"></script>
+    <script src="../js/pricing.js"></script>
 </body>
 
 </html>

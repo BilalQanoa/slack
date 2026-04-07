@@ -24,6 +24,7 @@ function toggleTheme() {
  
 // 2. Navbar Scroll Effect
 
+// 2. Navbar Scroll Effect
 window.addEventListener('scroll', () => {
 
     const nav = document.getElementById('navbar');
