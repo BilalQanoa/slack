@@ -1,34 +1,54 @@
 /* Global styles that Tailwind can't express (browser pseudo-elements). */
+
 html {
+
   scroll-behavior: smooth;
-}
 
+}
+ 
 ::-webkit-scrollbar {
+
   width: 8px;
-}
 
+}
+ 
 ::-webkit-scrollbar-track {
+
   background: transparent;
-}
 
+}
+ 
 ::-webkit-scrollbar-thumb {
+
     background: #3f0e40;
+
     border-radius: 10px;
+
 }
+
 .check-icon {
+
   width: 1.25rem;
+
   height: 1.25rem;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   border-radius: 9999px;
+
   background-color: #4A154B;
+
   color: white;
+
   font-size: 10px;
+
   font-weight: 700;
+
   flex-shrink: 0;
+
 }
-
-
-
-
+ 

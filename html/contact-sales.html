@@ -1,0 +1,307 @@
+<<<<<<< feature/ahmed
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing | Slack</title>
+		<!-- <link rel="stylesheet" href="./../css/global.css"> -->
+    <link rel="stylesheet" href="./../css/contact.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'slack-purple': '#3f0e40' } } } }
+    </script>
+</head>
+ 
+<body class="bg-white dark:bg-[#1a1d21] text-[#1d1c1d] dark:text-[#d1d2d3]">
+ 
+    <header id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
+        <div class="flex items-center gap-8">
+            <a href="index.html">
+                <img src="https://a.slack-edge.com/80588/img/slack_logo_240.png" alt="Slack"
+                    class="h-8 dark:invert transition-all duration-300">
+            </a>
+            <nav class="hidden md:block" aria-label="Primary">
+                <ul class="flex gap-6 font-semibold text-[15px] tracking-[-0.01em]">
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Features</a></li>
+                    <li><a href="html/solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
+                    <li><a href="html/enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a>
+                    </li>
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Resources</a></li>
+                    <li><a href="html/pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+ 
+        <div class="flex items-center gap-4">
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+ 
+            <a href="#"
+                class="hidden lg:inline-flex text-[15px] font-semibold hover:text-slack-blue transition-colors">Sign
+                in</a>
+ 
+            <a href="html/contact-sales.html"
+                class="hidden lg:inline-flex font-bold text-[13px] tracking-[0.08em] uppercase border-2 border-slack-purple text-slack-purple px-4 py-2 rounded hover:bg-slack-purple hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-slack-purple transition-all duration-300">
+                REQUEST A DEMO
+            </a>
+ 
+            <a href="#"
+                class="hidden sm:inline-flex bg-[#611f69] hover:bg-[#4a154b] text-white px-5 py-2 rounded font-extrabold text-[13px] tracking-[0.08em] uppercase shadow-sm active:scale-[0.98] transition-all duration-200">
+                Get started
+            </a>
+ 
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+ 
+            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-controls="mobileMenu"
+                aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+ 
+ 
+    <main class="main-container mt-[70px]">
+ 
+        <section class="left-column">
+ 
+ 
+            <h1>Contact our sales team</h1>
+ 
+            <p>We're happy to answer questions and get you acquainted with Slack.</p>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Schedule a demo</li>
+                <li><i class="fas fa-check"></i> Get pricing information</li>
+                <li><i class="fas fa-check"></i> Explore use cases for your team</li>
+            </ul>
+ 
+            <div class="help-callout">
+                <i class="far fa-question-circle"></i>
+                For technical issues and product questions, please visit our <a href="#">Help
+                    Center</a>.
+            </div>
+ 
+            <div class="logos-section">
+                <h2>Incredible companies use Slack</h2>
+                <div class="logos-grid">
+                    <img src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/airbnb-logo.png"
+                        alt="Airbnb">
+                    <img src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/uber.png" alt="Uber">
+ 
+                    <img src="https://a.slack-edge.com/65573/marketing/img/logos/company/_color/logo-onemedical.png"
+                        alt="One Medical">
+                    <img src="https://a.slack-edge.com/48d9d8a/marketing/img/logos/company/_color/logo-newscorp.png"
+                        alt="News Corp">
+                    <img src="https://a.slack-edge.com/a92aa/marketing/img/logos/company/_color/us-department-of-veteran-affairs.png"
+                        alt="U.S. Department of Veterans Affairs">
+                    <img src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit.png"
+                        alt="Intuit">
+                    <img src="https://a.slack-edge.com/cee38ab/marketing/img/about/slack-salesforce/logos/logo-sonos.png"
+                        alt="Sonos">
+                </div>
+            </div>
+ 
+            <div class="testimonial-section">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Lyft_logo.svg" alt="Lyft"
+                    class="testimonial-logo">
+                <blockquote>
+                    “Slack is business done right. When you have collaboration happening in one spot,
+                    leadership doesn't need to be copied on an email. You can hop into a Slack channel,
+                    cruise along with the project, and jump in where needed.”
+                </blockquote>
+                <cite>
+                    <span class="cite-name">Benjamin Sternsmith</span><br>
+                    Area Vice President of Sales, Lyft Business
+                </cite>
+            </div>
+        </section>
+ 
+        <section class="right-column">
+            <form id="contactSalesForm">
+ 
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First name *</label>
+                        <input type="text" name="firstName" placeholder="Your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last name *</label>
+                        <input type="text" name="lastName" placeholder="Your last name" required>
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Work email *</label>
+                    <input type="email" name="email" required>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Role *</label>
+                    <select name="role" required>
+                        <option value="">Please select one</option>
+                        <option value="developer">Developer</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Country / Region *</label>
+                    <select name="country">
+                        <option value="PS">State of Palestine</option>
+                        <option value="US">United States</option>
+                    </select>
+                </div>
+ 
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Company *</label>
+                        <input type="text" name="company" placeholder="Acme Inc." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company size *</label>
+                        <select name="companySize" required>
+                            <option value="">Please select one</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="50+">50+ employees</option>
+                        </select>
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Phone number *</label>
+                    <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+                </div>
+ 
+                <div class="form-group">
+                    <label>How can our sales team help you? *</label>
+                    <select name="helpType" required>
+                        <option value="">Please select one</option>
+                        <option value="pricing">Get Pricing Information</option>
+                        <option value="demo">Schedule a Demo</option> <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg"
+                            alt="Slack Logo">
+                </div>
+ 
+                <h1>Contact our sales team</h1>
+                <p>We're happy to answer questions and get you acquainted with Slack.</p>
+ 
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Schedule a demo</li>
+                    <li><i class="fas fa-check"></i> Get pricing information</li>
+                    <li><i class="fas fa-check"></i> Explore use cases for your team</li>
+                </ul>
+ 
+                <div class="trusted-companies">
+                    <p>Incredible companies use Slack</p>
+                    <div class="logos-grid">
+                        <img src="airbnb.png" alt="Airbnb">
+                        <img src="uber.png" alt="Uber">
+                        <img src="news.png" alt="News Corp">
+                        <img src="intuit.png" alt="Intuit">
+                        <img src="sonos.png" alt="Sonos">
+                    </div>
+                </div>
+ 
+                <div class="testimonial">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Lyft_logo.svg" alt="Lyft"
+                        class="lyft-logo">
+                    <blockquote>
+                        "Slack is business done right. When you have collaboration happening in one
+                        spot, leadership doesn't need to be copied on an email. You can hop into a Slack
+                        channel, cruise along with the project, and jump in where needed."
+                    </blockquote>
+                    <cite>
+                        <strong>Benjamin Sternsmith</strong><br>
+                        Area Vice President of Sales, Lyft Business
+                    </cite>
+                </div>
+ 
+                <div class="help-center">
+                    <i class="far fa-question-circle"></i>
+                    <span>For technical issues and product questions, please visit our <a href="#">Help
+                            Center</a>.</span>
+                </div>
+        </section>
+ 
+        <section class="right-section">
+            <form id="salesForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First name *</label>
+                        <input type="text" name="firstName" placeholder="Your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last name *</label>
+                        <input type="text" name="lastName" placeholder="Your last name" required>
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Work email *</label>
+                    <input type="email" name="email" placeholder="name@company.com" required>
+                </div>
+ 
+                <div class="form-group">
+                    <label>Country / Region *</label>
+                    <select name="country">
+                        <option value="PS">State of Palestine</option>
+                        <option value="US">United States</option>
+                    </select>
+                </div>
+ 
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Company *</label>
+                        <input type="text" name="company" placeholder="Acme Inc." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company size *</label>
+                        <select name="size" required>
+                            <option value="">Please select one</option>
+                            <option value="1-10">1-10</option>
+                            <option value="11-50">11-50</option>
+                            <option value="50+">50+</option>
+                        </select>
+                    </div>
+                </div>
+ 
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+ 
+</html>
+ 
+=======
+>>>>>>> main
