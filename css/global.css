@@ -1,250 +1,54 @@
+/* Global styles that Tailwind can't express (browser pseudo-elements). */
+
 html {
-    scroll-behavior: smooth;
-}
 
+  scroll-behavior: smooth;
+
+}
+ 
 ::-webkit-scrollbar {
-    width: 8px;
-}
 
+  width: 8px;
+
+}
+ 
 ::-webkit-scrollbar-track {
-    background: transparent;
-}
 
+  background: transparent;
+
+}
+ 
 ::-webkit-scrollbar-thumb {
+
     background: #3f0e40;
+
     border-radius: 10px;
-}
-/* --- Global Styles --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Slack-Lato', 'Helvetica Neue', Arial, sans-serif;
-    color: #1d1d1d; /* Slack default text color */
+
 }
 
-.main-container {
-    display: flex;
-    min-height: 100vh;
-}
+.check-icon {
 
-/* --- LEFT COLUMN (PURPLE) --- */
-.left-column {
-    flex: 1;
-    background-color: #4a154b; /* Deep Slack Purple */
-    padding: 60px 80px;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-}
+  width: 1.25rem;
 
-.left-column h1 {
-    font-size: 3.5rem;
-    color: #fff;
-    margin: 2rem 0 1rem 0;
-}
+  height: 1.25rem;
 
-.left-column p {
-    font-size: 1.25rem;
-    color: #fff;
-    margin-bottom: 2rem;
-}
+  display: flex;
 
-/* Feature List */
-.features-list {
-    list-style: none;
-    margin-bottom: 3rem;
-}
+  align-items: center;
 
-.features-list li {
-    font-size: 1.2rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-}
+  justify-content: center;
 
-.features-list li i {
-    margin-right: 15px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
+  border-radius: 9999px;
 
-/* Help Callout */
-.help-callout {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+  background-color: #4A154B;
 
-.help-callout a {
-    color: #1264a3; /* Slack blue */
-    text-decoration: none;
-    background-color: #fff;
-    padding: 1px 4px;
-    border-radius: 2px;
-}
+  color: white;
 
-/* Logos Section */
-.logos-section h2 {
-    font-size: 1.6rem;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-}
+  font-size: 10px;
 
-.logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 3rem;
-}
+  font-weight: 700;
 
-/* IMPORTANT: Making Logos White */
-.logos-grid img {
-    height: 25px;
-    filter: brightness(0) invert(1); /* Turns all logos to pure white */
-    opacity: 0.8;
-}
+  flex-shrink: 0;
 
-/* Special Case for VA Seal (which is round) */
-.logos-grid img {
-    height: 40px;
 }
-
-/* Testimonial Section */
-.testimonial-section {
-    margin-top: auto; /* Pushes testimonial to bottom */
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.testimonial-logo {
-    height: 35px;
-    filter: brightness(0) invert(1);
-    margin-bottom: 1rem;
-}
-
-blockquote {
-    font-size: 1.1rem;
-    font-style: italic;
-    line-height: 1.6;
-    color: #f1f1f1;
-    margin-bottom: 1.5rem;
-}
-
-cite {
-    font-style: normal;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-    display: block;
-}
-
-.cite-name {
-    font-weight: bold;
-    color: #fff;
-}
-
-/* --- RIGHT COLUMN (WHITE) --- */
-.right-column {
-    flex: 1;
-    background-color: #fff;
-    padding: 60px 80px;
-    border-left: 1px solid #ddd;
-}
-
-/* Form Layout */
-#contactSalesForm {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-row {
-    display: flex;
-    gap: 20px;
-}
-
-.form-row .form-group {
-    flex: 1;
-}
-
-label {
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-input, select, textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #1264a3;
-    outline: none;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-/* Form Footer & Submit Button */
-.form-footer {
-    font-size: 0.85rem;
-    margin-top: 2rem;
-}
-
-.form-footer p {
-    color: #616061;
-    margin-bottom: 0.5rem;
-}
-
-.form-footer a {
-    color: #1264a3;
-    text-decoration: underline;
-}
-
-.submit-btn {
-    background-color: #611f69;
-    color: #fff;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.2s;
-    display: inline-block;
-    width: 150px;
-    margin-top: 1rem;
-}
-
-.submit-btn:hover {
-    background-color: #4a154b;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 1000px) {
-    .main-container {
-        flex-direction: column;
-    }
-    .left-column, .right-column {
-        padding: 40px;
-    }
-}
+ 
