@@ -1,0 +1,70 @@
+<header id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[5%] py-4 transition-all duration-500">
+        <div class="flex items-center gap-8">
+            <a href="index.html">
+                <img src="https://a.slack-edge.com/80588/img/slack_logo_240.png" alt="Slack"
+                    class="h-8 dark:invert transition-all duration-300">
+            </a>
+            <nav class="hidden md:block" aria-label="Primary">
+                <ul class="flex gap-6 font-semibold text-[15px] tracking-[-0.01em]">
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Features</a></li>
+                    <li><a href="html/solutions.html" class="hover:text-slack-blue transition-colors">Solutions</a></li>
+                    <li><a href="html/enterprise.html" class="hover:text-slack-blue transition-colors">Enterprise</a></li>
+                    <li><a href="#" class="hover:text-slack-blue transition-colors">Resources</a></li>
+                    <li><a href="html/pricing.html" class="hover:text-slack-blue transition-colors">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <a href="#"
+                class="hidden lg:inline-flex text-[15px] font-semibold hover:text-slack-blue transition-colors">Sign
+                in</a>
+
+            <a href="html/contact-sales.html"
+                class="hidden lg:inline-flex font-bold text-[13px] tracking-[0.08em] uppercase border-2 border-slack-purple text-slack-purple px-4 py-2 rounded hover:bg-slack-purple hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-slack-purple transition-all duration-300">
+                REQUEST A DEMO
+            </a>
+
+            <a href="#"
+                class="hidden sm:inline-flex bg-[#611f69] hover:bg-[#4a154b] text-white px-5 py-2 rounded font-extrabold text-[13px] tracking-[0.08em] uppercase shadow-sm active:scale-[0.98] transition-all duration-200">
+                Get started
+            </a>
+
+            <button type="button" data-theme-toggle aria-label="Toggle theme"
+                class="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+                <svg class="w-5 h-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364-1.414 1.414M7.05 16.95l-1.414 1.414m0-11.314L7.05 7.05m9.9 9.9 1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+            </button>
+
+            <button id="mobileMenuBtn" type="button" aria-label="Open menu" aria-controls="mobileMenu"
+                aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>

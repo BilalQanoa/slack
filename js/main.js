@@ -21,7 +21,16 @@ function toggleTheme() {
     setTheme(!document.documentElement.classList.contains('dark'));
 
 }
- 
+
+// 1.5 Global Synchronization
+
+window.addEventListener('storage', (event) => {
+    if (event.key === 'theme') {
+        const isDark = event.newValue === 'dark';
+        document.documentElement.classList.toggle('dark', isDark);
+    }
+});
+
 // 2. Navbar Scroll Effect
 
 // 2. Navbar Scroll Effect
